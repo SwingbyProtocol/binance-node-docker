@@ -14,5 +14,9 @@ A portable Docker image and docker-compose spec for Binance Chain full nodes
 
 ### Startup
 
-Make sure that your home directories are in `../.bnbchaind` for prod and `../.bnbchaind-testnet` for testnet and then use `make` and `docker-compose up -d`.
+Make sure that the latest version numbers are in the variables at the top of the Makefile.
+
+Check and edit the configs in `./homes/mainnet/config` for prod and `./homes/testnet/config` for testnet.
+
+Use `make` and `docker-compose up -d` to start the daemons.
 
