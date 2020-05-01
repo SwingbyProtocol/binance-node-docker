@@ -9,7 +9,7 @@ services:
       - 27146:27146
       - 27147:27147
     volumes:
-      - ./../.bnbchaind:/var/lib/bnb/
+      - ./homes/mainnet:/var/lib/bnb/
     networks:
       - bnb
     environment:
@@ -36,7 +36,7 @@ services:
       - 26656:26656
       - 26657:27147
     volumes:
-      - ./../.bnbchaind-testnet:/var/lib/bnb/
+      - ./homes/testnet:/var/lib/bnb/
     networks:
       - bnb
     environment:

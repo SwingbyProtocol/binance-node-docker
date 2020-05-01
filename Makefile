@@ -3,5 +3,8 @@ all: docker
 docker:
 	./scripts/docker-build.sh
 
-.PHONY: all docker
+start:
+	docker-compose up -d
+
+.PHONY: all docker start
 
