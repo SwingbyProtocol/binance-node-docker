@@ -1,10 +1,11 @@
 all: docker
 
-version := 0.6.3-hotfix
+binver := 0.6.3-hotfix
+cliver := 0.6.3
 
 docker:
-	docker build . -t binance/binance-node:$(version)
-	docker tag binance/binance-node:$(version) binance/binance-node:latest
+	docker build --build-arg BVER=$(binver) --build-arg CLIVER=$(cliver) . -t binance/binance-node:$(binver)
+	docker tag binance/binance-node:$(binver) binance/binance-node:latest
 
 start:
 	docker-compose up -d

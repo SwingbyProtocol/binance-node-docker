@@ -1,12 +1,8 @@
-# UPDATE ME when new version is out !!!!
-ARG BVER=0.6.3-hotfix
-ARG CLIVER=0.6.3
 FROM ubuntu:focal as builder
 
 # Dockerfile for running Binance node from binary packages under docker
 # https://docs.binance.org/fullnode.html#run-full-node-to-join-binance-chain
 # MIT license
-LABEL Maintainer = "Evgeny Varnavskiy <varnavruz@gmail.com>"
 LABEL Description="Docker image for Binance full and light nodes"
 LABEL License="MIT License"
 
