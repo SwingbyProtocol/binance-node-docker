@@ -4,12 +4,12 @@ services:
   bnb:
     container_name: bnb
     restart: unless-stopped
-    build: .
+    image: binance/binance-node
     ports:
       - 27146:27146
       - 27147:27147
     volumes:
-      - bnb:/var/lib/bnb/
+      - ./../.bnbchaind:/var/lib/bnb/
     networks:
       - bnb
     environment:
@@ -31,12 +31,12 @@ services:
   bnb_testnet:
     container_name: bnb_testnet
     restart: unless-stopped
-    build: .
+    image: binance/binance-node
     ports:
       - 26656:26656
-      - 26657:26657
+      - 26657:27147
     volumes:
-      - bnb_testnet:/var/lib/bnb/
+      - ./../.bnbchaind-testnet:/var/lib/bnb/
     networks:
       - bnb
     environment:
@@ -54,10 +54,6 @@ services:
       options:
         max-size: "512m"
         max-file: "1"
-
-volumes:
-  bnb:
-  bnb_testnet:
 
 networks:
   bnb:

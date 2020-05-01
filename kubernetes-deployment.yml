@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: binance-node
-        image: varnav/binance-node
+        image: binance/binance-node
         ports:
         - name: binance-rpc
           containerPort: 27147

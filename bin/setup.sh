@@ -4,7 +4,7 @@ set -ex
 
 if [ ! -d "${BNCHOME}/config/" ]; then
 mkdir -p ${BNCHOME}/config/
-cp /node-binary/fullnode/${BNET}/${BVER}/config/* ${BNCHOME}/config/
+#cp /node-binary/fullnode/${BNET}/${BVER}/config/* ${BNCHOME}/config/
 chown -R bnbchaind:bnbchaind ${BNCHOME}/config/
 fi
 

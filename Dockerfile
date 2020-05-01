@@ -1,7 +1,7 @@
 # UPDATE ME when new version is out !!!!
-ARG BVER=0.6.3
+ARG BVER=0.6.3-hotfix
 ARG CLIVER=0.6.3
-FROM ubuntu:18.04 as builder
+FROM ubuntu:focal as builder
 
 # Dockerfile for running Binance node from binary packages under docker
 # https://docs.binance.org/fullnode.html#run-full-node-to-join-binance-chain
@@ -27,7 +27,7 @@ RUN	git lfs clone --depth 1 https://github.com/binance-chain/node-binary.git
 
 # Final stage
 
-FROM ubuntu:18.04
+FROM ubuntu:focal
 
 ARG HOST_USER_UID=1000
 ARG HOST_USER_GID=1000
@@ -40,7 +40,8 @@ ARG NODETYPE=fullnode
 #ARG NODETYPE=lightnode
 ENV BNET=testnet
 #ENV BNET=prod
-ENV BNCHOME=/opt/bnbchaind
+#ENV BNCHOME=/opt/bnbchaind
+ENV BNCHOME=/var/lib/bnb
 
 COPY --from=builder /node-binary/cli/testnet/${CLIVER}/linux/tbnbcli /node-binary/cli/testnet/${BVER}/linux/
 COPY --from=builder /node-binary/cli/prod/${CLIVER}/linux/bnbcli /node-binary/cli/prod/${BVER}/linux/
@@ -52,10 +53,11 @@ COPY ./bin/*.sh /usr/local/bin/
 
 RUN set -ex \
 && chmod +x /usr/local/bin/*.sh \
-&& mkdir -p "$BNCHOME" \
+#&& mkdir -p "$BNCHOME" \
 && groupadd --gid "$HOST_USER_GID" bnbchaind \
 && useradd --uid "$HOST_USER_UID" --gid "$HOST_USER_GID" --shell /bin/bash --no-create-home bnbchaind \
-&& chown -R bnbchaind:bnbchaind "$BNCHOME"
+&& apt-get update && apt-get install -y --no-install-recommends curl
+#&& chown -R bnbchaind:bnbchaind "$BNCHOME"
 
 VOLUME ${BNCHOME}
 
@@ -63,5 +65,8 @@ VOLUME ${BNCHOME}
 # Prometheus is enabled on port 26660 by default, and the endpoint is /metrics.
 
 EXPOSE 27146 27147 26660
+
+HEALTHCHECK --interval=1m --timeout=3s --retries=3 \
+  CMD curl -f http://localhost:27147/status || exit 1
 
 ENTRYPOINT ["entrypoint.sh"]
