@@ -55,27 +55,27 @@ bech32PrefixConsPub = "bcap"
 [publication]
 # configurations ends with Kafka can be a semi-colon separated host-port list
 # Whether we want publish market data (this includes trades and order)
-publishOrderUpdates = true
+publishOrderUpdates = false
 orderUpdatesTopic = "orders"
 orderUpdatesKafka = "127.0.0.1:9092"
 
 # Whether we want publish account balance to notify browser db indexer persist latest account balance change
-publishAccountBalance = true
+publishAccountBalance = false
 accountBalanceTopic = "accounts"
 accountBalanceKafka = "127.0.0.1:9092"
 
 # Whether we want publish order book changes
-publishOrderBook = true
+publishOrderBook = false
 orderBookTopic = "orders"
 orderBookKafka = "127.0.0.1:9092"
 
 # Whether we want publish block fee changes
-publishBlockFee = true
+publishBlockFee = false
 blockFeeTopic = "accounts"
 blockFeeKafka = "127.0.0.1:9092"
 
 # Whether we want publish transfers
-publishTransfer = true
+publishTransfer = false
 transferTopic = "transfers"
 transferKafka = "127.0.0.1:9092"
 
