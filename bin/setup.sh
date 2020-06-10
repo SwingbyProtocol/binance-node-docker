@@ -17,7 +17,7 @@ else
 fi
 
 if [ ${BNET} == "testnet" ]; then
-    ln -sf /node-binary/cli/${BNET}/${BVER}/linux/tbnbcli /usr/local/bin/tbnbcli
+    ln -sf /node-binary/cli/${BNET}/${BVERTEST}/linux/tbnbcli /usr/local/bin/tbnbcli
     chmod +x /usr/local/bin/tbnbcli
 else
     ln -sf /node-binary/cli/${BNET}/${BVER}/linux/bnbcli /usr/local/bin/bnbcli
