@@ -1,7 +1,7 @@
 all: docker
 
-binver := 0.6.3-hotfix
-cliver := 0.6.3
+binver := 0.7.0
+cliver := 0.7.0
 
 docker:
 	docker build --build-arg BVER=$(binver) --build-arg CLIVER=$(cliver) . -t binance/binance-node:$(binver)
