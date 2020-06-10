@@ -41,8 +41,8 @@ services:
       - bnb
     environment:
       BNET: "testnet"
-    security_opt:
-      - no-new-privileges
+    #security_opt:
+      #- no-new-privileges
     ulimits:
       nofile:
         soft: 16000
