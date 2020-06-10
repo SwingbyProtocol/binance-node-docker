@@ -29,8 +29,11 @@ ARG HOST_USER_UID=1000
 ARG HOST_USER_GID=1000
 
 ARG BVER
+ARG BVERTEST
 ARG CLIVER
 ENV BVER=$BVER
+ENV BVERTEST=$BVERTEST
+
 ENV CLIVER=$CLIVER
 ARG NODETYPE=fullnode
 #ARG NODETYPE=lightnode
@@ -39,11 +42,11 @@ ENV BNET=testnet
 #ENV BNCHOME=/opt/bnbchaind
 ENV BNCHOME=/var/lib/bnb
 
-COPY --from=builder /node-binary/cli/testnet/${CLIVER}/linux/tbnbcli /node-binary/cli/testnet/${BVER}/linux/
+COPY --from=builder /node-binary/cli/testnet/${CLIVER}/linux/tbnbcli /node-binary/cli/testnet/${BVERTEST}/linux/
 COPY --from=builder /node-binary/cli/prod/${CLIVER}/linux/bnbcli /node-binary/cli/prod/${BVER}/linux/
-COPY --from=builder /node-binary/${NODETYPE}/testnet/${BVER}/linux/bnbchaind /node-binary/fullnode/testnet/${BVER}/linux/
+COPY --from=builder /node-binary/${NODETYPE}/testnet/${BVERTEST}/linux/bnbchaind /node-binary/fullnode/testnet/${BVERTEST}/linux/
 COPY --from=builder /node-binary/${NODETYPE}/prod/${BVER}/linux/bnbchaind /node-binary/fullnode/prod/${BVER}/linux/
-COPY --from=builder /node-binary/${NODETYPE}/testnet/${BVER}/config/* /node-binary/fullnode/testnet/${BVER}/config/
+COPY --from=builder /node-binary/${NODETYPE}/testnet/${BVERTEST}/config/* /node-binary/fullnode/testnet/${BVERTEST}/config/
 COPY --from=builder /node-binary/${NODETYPE}/prod/${BVER}/config/* /node-binary/fullnode/prod/${BVER}/config/
 COPY ./bin/*.sh /usr/local/bin/
 
