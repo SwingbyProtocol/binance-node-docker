@@ -356,7 +356,7 @@ indexer = "kv"
 
 # Operator ["<", ">", ">=", "<="] belongs to range query operator.
 # Notice: only enable it in trust environment.
-enable_range_query = false
+enable_range_query = true
 
 # Comma-separated list of tags to index (by default the only tag is "tx.hash")
 #
@@ -365,7 +365,7 @@ enable_range_query = false
 # It's recommended to index only a subset of tags due to possible memory
 # bloat. This is, of course, depends on the indexer's DB and the volume of
 # transactions.
-index_tags = ""
+index_tags = "tx.height"
 
 # When set to true, tells indexer to index all tags (predefined tags:
 # "tx.hash", "tx.height" and all tags from DeliverTx responses).
