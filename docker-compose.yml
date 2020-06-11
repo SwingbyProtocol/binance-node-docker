@@ -34,7 +34,7 @@ services:
     image: binance/binance-node
     ports:
       - 26656:26656
-      - 26657:27147
+      - 26657:26657
     volumes:
       - ./homes/testnet:/var/lib/bnb/
     networks:
