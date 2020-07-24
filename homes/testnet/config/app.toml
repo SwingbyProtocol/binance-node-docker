@@ -17,31 +17,29 @@ breatheBlockDaysCountBack = 7
 
 [upgrade]
 # Block height of BEP6 upgrade
-BEP6Height = 24020000
+BEP6Height = 1
 # Block height of BEP9 upgrade
-BEP9Height = 24020000
+BEP9Height = 1
 # Block height of BEP10 upgrade
-BEP10Height = 24020000
-# Block height of BEP19 upgrade
-BEP19Height = 24020000
+BEP10Height = 1
+# Block height of BEP19Height upgrade
+BEP19Height = 1
 # Block height of BEP12 upgrade
-BEP12Height = 29794000
+BEP12Height = 1
 # Block height of BEP3 upgrade
-BEP3Height = 39581000
+BEP3Height = 1
 # Block height of FixSignBytesOverflow upgrade
-FixSignBytesOverflowHeight = 49721000
+FixSignBytesOverflowHeight = 1
 # Block height of LotSizeOptimization upgrade
-LotSizeUpgradeHeight = 49721000
+LotSizeUpgradeHeight = 1
 # Block height of changing listing rule upgrade
-ListingRuleUpgradeHeight = 49721000
+ListingRuleUpgradeHeight = 1
 # Block height of FixZeroBalanceHeight upgrade
-FixZeroBalanceHeight = 49721000
-# Block height of BEP8 upgrade
-BEP8Height = 86830000
-# Block height of BEP67 upgrade
-BEP67Height = 86830000
-# Block height of BEP70 upgrade
-BEP70Height = 86830000
+FixZeroBalanceHeight = 1
+BEP70Height = 1
+BEP67Height = 1
+BEP8Height = 1
+LaunchBscUpgradeHeight = 1
 
 [query]
 # ABCI query interface black list, suggested value: ["custom/gov/proposals", "custom/timelock/timelocks", "custom/atomicSwap/swapcreator", "custom/atomicSwap/swaprecipient"]
@@ -89,14 +87,31 @@ publishTransfer = false
 transferTopic = "transfers"
 transferKafka = "127.0.0.1:9092"
 
+# Whether we want publish block
+publishBlock = false
+blockTopic = "block"
+blockKafka = "127.0.0.1:9092"
+
 # Global setting
-publicationChannelSize = "10000"
+publicationChannelSize = 10000
 publishKafka = false
 publishLocal = false
 # max size in megabytes of marketdata json file before rotate
 localMaxSize = 1024
 # max days of marketdata json files to keep before deleted
 localMaxAge = 7
+
+# whether the kafka open SASL_PLAINTEXT auth
+auth = false
+kafkaUserName = ""
+kafkaPassword = ""
+
+# stop process when publish to Kafka failed
+stopOnKafkaFail = false
+
+# please modify the default value into the version of Kafka you are using
+# kafka broker version, default (and most recommended) is 2.1.0. Minimal supported version could be 0.8.2.0
+kafkaVersion = "2.1.0"
 
 [log]
 
@@ -110,7 +125,9 @@ logFileRoot = ""
 logFilePath = "bnc.log"
 # Number of logs keep in memory before writing to file
 logBuffSize = 10000
-
+[cross_chain]
+ibcChainId = 1
+bscChainId = "chapel"
+bscIbcChainId = 97
 [dex]
-# The suffixed symbol of BUSD
-BUSDSymbol = "BUSD-C86"
+BUSDSymbol = "BUSD-BAF"
