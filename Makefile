@@ -1,7 +1,7 @@
 all: docker
 
 binvertest := 0.7.2-hotfix-2
-binver := 0.7.2
+binver := 0.8.0
 cliver := 0.6.3
 
 docker:
