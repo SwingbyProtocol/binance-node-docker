@@ -36,6 +36,14 @@ LotSizeUpgradeHeight = 51467800
 ListingRuleUpgradeHeight = 51467800
 # Block height of FixZeroBalanceHeight upgrade
 FixZeroBalanceHeight = 51467800
+# Block height of BEP8 upgrade
+BEP8Height = 99550000
+# Block height of BEP67 upgrade
+BEP67Height = 99550000
+# Block height of BEP70 upgrade
+BEP70Height = 99550000
+# Block height of smart chain upgrade
+LaunchBscUpgradeHeight = 109999000
 
 [addr]
 # Bech32PrefixAccAddr defines the Bech32 prefix of an account's address
@@ -55,34 +63,64 @@ bech32PrefixConsPub = "bcap"
 [publication]
 # configurations ends with Kafka can be a semi-colon separated host-port list
 # Whether we want publish market data (this includes trades and order)
-publishOrderUpdates = false
-orderUpdatesTopic = "orders"
 orderUpdatesKafka = "127.0.0.1:9092"
+orderUpdatesTopic = "orders"
+publishOrderUpdates = true
 
 # Whether we want publish account balance to notify browser db indexer persist latest account balance change
-publishAccountBalance = false
-accountBalanceTopic = "accounts"
 accountBalanceKafka = "127.0.0.1:9092"
+accountBalanceTopic = "accounts"
+publishAccountBalance = true
 
 # Whether we want publish order book changes
-publishOrderBook = false
-orderBookTopic = "orders"
 orderBookKafka = "127.0.0.1:9092"
+orderBookTopic = "orders"
+publishOrderBook = true
 
 # Whether we want publish block fee changes
-publishBlockFee = false
-blockFeeTopic = "accounts"
 blockFeeKafka = "127.0.0.1:9092"
+blockFeeTopic = "accounts"
+publishBlockFee = true
 
 # Whether we want publish transfers
-publishTransfer = false
-transferTopic = "transfers"
+publishTransfer = true
 transferKafka = "127.0.0.1:9092"
+transferTopic = "transfers"
+
+# Whether we want publish distribution
+distributeRewardKafka = "127.0.0.1:9092"
+distributeRewardTopic = "distribution"
+publishDistributeReward = false
+
+# Whether we want publish staking
+publishStaking = false
+stakingKafka = "127.0.0.1:9092"
+stakingTopic = "staking"
+
+# Whether we want publish slashing
+publishSlashing = false
+slashingKafka = "127.0.0.1:9092"
+slashingTopic = "slashing"
+
+# Whether we want publish cross transfer
+crossTransferKafka = "127.0.0.1:9092"
+crossTransferTopic = "crossTransfer"
+publishCrossTransfer = false
+
+# Whether we want publish side proposals
+publishSideProposal = false
+sideProposalKafka = "127.0.0.1:9092"
+sideProposalTopic = "sideProposal"
+
+# Whether we want publish breatheBlock
+breatheBlockKafka = "127.0.0.1:9092"
+breatheBlockTopic = "breatheBlock"
+publishBreatheBlock = false
 
 # Global setting
 publicationChannelSize = "10000"
 publishKafka = false
-publishLocal = false
+publishLocal = true
 # max size in megabytes of marketdata json file before rotate
 localMaxSize = 1024
 # max days of marketdata json files to keep before deleted
@@ -91,7 +129,7 @@ localMaxAge = 7
 [log]
 
 # Write logs to console instead of file
-logToConsole = true
+logToConsole = false
 
 ## The below parameters take effect only when logToConsole is false
 # Log file root, if not set, use home path
@@ -100,3 +138,7 @@ logFileRoot = ""
 logFilePath = "bnc.log"
 # Number of logs keep in memory before writing to file
 logBuffSize = 10000
+
+[dex]
+# The suffixed symbol of BUSD
+BUSDSymbol = "BUSD-BD1"

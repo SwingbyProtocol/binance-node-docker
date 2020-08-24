@@ -29,7 +29,7 @@ state_sync_height = 0
 # Only take effect when HotSyncReactor is true.
 # If true, will sync blocks use hot sync protocol
 # If false, still use tendermint consensus protocol, but can still handle other peers sync request.
-hot_sync = false
+hot_sync = true
 
 # The max wait time for subscribe a block.
 # Only take effect when hot_sync is true
@@ -204,7 +204,7 @@ laddr = "tcp://0.0.0.0:27146"
 external_address = ""
 
 # Comma separated list of seed nodes to connect to
-seeds = "b323708b0bd429a95154ff0a287f0f42f432cb62@34.247.169.233:27146,e2c323d27867bad2298a5452490157436e70e698@52.213.118.150:27146,dbec1c96777dc757db67945cbc41e3e793b94261@63.35.153.228:27146,48dada912ff10f04dec0db7900a78750384d06fd@52.31.30.219:27146,cfb5c1f7c10dfd99219158f5491ce65227bfd072@99.80.184.64:27146,29792743565c4470480dbf7ef43b9256465dfa74@99.81.122.88:27146"
+seeds = "b323708b0bd429a95154ff0a287f0f42f432cb62@34.247.169.233:27146,bb721fe089e83d42bcb8f629f8efe0e4af888fde@52.197.88.253:27146,289f680c0c78465dbf1d86c2260dd032d4541a4c@34.227.165.88:27146"
 
 # Comma separated list of nodes to keep persistent connections to
 persistent_peers = ""
@@ -355,7 +355,7 @@ indexer = "kv"
 
 # Operator ["<", ">", ">=", "<="] belongs to range query operator.
 # Notice: only enable it in trust environment.
-enable_range_query = true
+enable_range_query = false
 
 # Comma-separated list of tags to index (by default the only tag is "tx.hash")
 #
