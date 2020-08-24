@@ -91,7 +91,7 @@ prof_laddr = ":9060"
 filter_peers = false
 
 # If false, will not check appHash when apply block
-with_app_stat = true
+with_app_stat = false
 
 ##### advanced configuration options #####
 
