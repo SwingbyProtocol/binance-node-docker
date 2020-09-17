@@ -37,7 +37,7 @@ state_sync_reactor = true
 # <0 - turn off state sync
 # =0 - sync from peer's latest height
 # >0 - sync from that height
-state_sync_height = 0
+state_sync_height = -1
 
 # Database backend: goleveldb | cleveldb | boltdb
 # * goleveldb (github.com/syndtr/goleveldb - most popular implementation)
@@ -91,7 +91,7 @@ prof_laddr = ""
 filter_peers = false
 
 # If false, will not check appHash when apply block
-with_app_stat = true
+with_app_stat = false
 
 ##### advanced configuration options #####
 
